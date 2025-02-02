@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/api/v1')]
 class TestController extends AbstractController
@@ -32,6 +33,7 @@ class TestController extends AbstractController
             'name'  => 'Dmytro']
     ];
     #[Route('/users', name: 'app_collection_users', methods: ['GET'])]
+    #[IsGranted("ROLE_ADMIN")]
     public function getCollection(): JsonResponse
     {
         return new JsonResponse([
@@ -77,6 +79,7 @@ class TestController extends AbstractController
     }
 
     #[Route('/users/{id}', name: 'app_delete_users', methods: ['DELETE'])]
+    #[IsGranted("ROLE_ADMIN")]
     public function deleteItem(string $id): JsonResponse
     {
         $userIndex = null;
@@ -94,6 +97,7 @@ class TestController extends AbstractController
     }
 
     #[Route('/users/{id}', name: 'app_update_users', methods: ['PATCH'])]
+    #[IsGranted("ROLE_ADMIN")]
     public function updateItem(string $id, Request $request): JsonResponse
     {
         $requestData = json_decode($request->getContent(), true);
