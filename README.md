@@ -29,7 +29,6 @@ For detailed API documentation, visit the link below:
 
 ## Technologies Used
 - **PHP** (for backend)
-- **MySQL** (for database)
 - **JWT** (for user authentication)
 
 ## Installation
