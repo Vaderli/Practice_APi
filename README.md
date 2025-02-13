@@ -35,7 +35,7 @@ For detailed API documentation, visit the link below:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/yourproject.git
+   git clone https://github.com/Vaderli/Practice_APi.git
 2. Install dependencies (if applicable)
     ```bash
     composer install
